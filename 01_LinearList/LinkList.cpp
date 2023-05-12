@@ -6,24 +6,27 @@
  *
  **/
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
-typedef struct LNode {
+typedef struct LNode
+{
 	int data;
 	struct LNode *next;
 } LNode, *LinkList;
 
-//typedef struct LNode Lnode;
-//typedef struct LNode *LinkList;
+// typedef struct LNode Lnode;
+// typedef struct LNode *LinkList;
 
-//LNode *L <==> LinkList L
+// LNode *L <==> LinkList L
 
 // 初始化链表
-bool InitList(LinkList &L) {
-	L = (LNode *) malloc(sizeof(LNode));
-	if (L == NULL) {
+bool InitList(LinkList &L)
+{
+	L = (LNode *)malloc(sizeof(LNode));
+	if (L == NULL)
+	{
 		return false;
 	}
 	L->next = NULL;
@@ -31,19 +34,23 @@ bool InitList(LinkList &L) {
 }
 
 // 判断空表
-bool Empty(LinkList L) {
+bool Empty(LinkList L)
+{
 	return (L->next == NULL);
 }
 
 // 按位查找
-LNode *GetElem(LinkList L, int i) {
-	if (i < 0) {
+LNode *GetElem(LinkList L, int i)
+{
+	if (i < 0)
+	{
 		return NULL;
 	}
 	LNode *p;
 	int j = 0;
 	p = L;
-	while (p != NULL && j < i) {
+	while (p != NULL && j < i)
+	{
 		p = p->next;
 		j++;
 	}
@@ -51,23 +58,28 @@ LNode *GetElem(LinkList L, int i) {
 }
 
 // 按值查找
-LNode *LocateElem(LinkList L, int e) {
+LNode *LocateElem(LinkList L, int e)
+{
 	LNode *p = L->next;
-	while (p != NULL && p->data != e) {
+	while (p != NULL && p->data != e)
+	{
 		p = p->next;
 	}
 	return p;
 }
 
 // 后插操作：在 p 节点之后插入元素
-bool InsertNextNode(LNode *p, int e) {
-	if (p == NULL) {
+bool InsertNextNode(LNode *p, int e)
+{
+	if (p == NULL)
+	{
 		return false;
 	}
 
 	// 内存分配失败的情况
-	LNode *s = (LNode *) malloc(sizeof(LNode));
-	if (s == NULL) {
+	LNode *s = (LNode *)malloc(sizeof(LNode));
+	if (s == NULL)
+	{
 		return false;
 	}
 
@@ -79,14 +91,17 @@ bool InsertNextNode(LNode *p, int e) {
 }
 
 // 头插法
-bool InsertPriorNode(LNode *p, int e) {
-	if (p == NULL) {
+bool InsertPriorNode(LNode *p, int e)
+{
+	if (p == NULL)
+	{
 		return false;
 	}
 
 	// 内存分配失败的情况
-	LNode *s = (LNode *) malloc(sizeof(LNode));
-	if (s == NULL) {
+	LNode *s = (LNode *)malloc(sizeof(LNode));
+	if (s == NULL)
+	{
 		return false;
 	}
 
@@ -99,8 +114,10 @@ bool InsertPriorNode(LNode *p, int e) {
 }
 
 // 王道书头插法
-bool InsertPriorNode(LNode *p, LNode *s) {
-	if (p == NULL || s == NULL) {
+bool InsertPriorNode(LNode *p, LNode *s)
+{
+	if (p == NULL || s == NULL)
+	{
 		return false;
 	}
 	s->next = p->next;
@@ -113,32 +130,36 @@ bool InsertPriorNode(LNode *p, LNode *s) {
 }
 
 // 按位序插入
-bool ListInsert(LinkList &L, int i, int e) {
-	if (i < 1) {
+bool ListInsert(LinkList &L, int i, int e)
+{
+	if (i < 1)
+	{
 		return false;
 	}
-//	int j = 0; //  p 指向的是第几个结点
-//	LNode *p;
-//	p = L;
-//	while ((p != NULL) && (j < i - 1)) { // 循环找到第 i - 1 个节点
-//		p = p->next;
-//		j++;
-//	}
-	LNode*p = GetElem(L, i - 1);
-
+	//	int j = 0; //  p 指向的是第几个结点
+	//	LNode *p;
+	//	p = L;
+	//	while ((p != NULL) && (j < i - 1)) { // 循环找到第 i - 1 个节点
+	//		p = p->next;
+	//		j++;
+	//	}
+	LNode *p = GetElem(L, i - 1);
 
 	return InsertNextNode(p, e);
 }
 
 // 按位序删除
-bool ListDelete(LinkList &L, int i, int &e) {
+bool ListDelete(LinkList &L, int i, int &e)
+{
 	// 同插入操作前半段
 	LNode *p = GetElem(L, i - 1);
 
-	if (p == NULL) {
+	if (p == NULL)
+	{
 		return false;
 	}
-	if (p->next == NULL) {
+	if (p->next == NULL)
+	{
 		return false;
 	}
 	LNode *q = p->next;
@@ -148,8 +169,10 @@ bool ListDelete(LinkList &L, int i, int &e) {
 	return false;
 }
 
-bool DeleteNode(LNode *p) {
-	if (p == NULL) {
+bool DeleteNode(LNode *p)
+{
+	if (p == NULL)
+	{
 		return false;
 	}
 
@@ -164,23 +187,28 @@ bool DeleteNode(LNode *p) {
 }
 
 // 表长
-int Length(LinkList L) {
+int Length(LinkList L)
+{
 	int len = 0;
 	LNode *p = L;
-	while (p->next != NULL) {
+	while (p->next != NULL)
+	{
 		p = p->next;
 		len++;
 	}
 	return len;
 }
 
-void Print(LNode *L) {
+void Print(LNode *L)
+{
 	LNode *h = L->next;
-	if (h == NULL) {
+	if (h == NULL)
+	{
 		printf("该链表为空表\n");
 		return;
 	}
-	while (h != NULL) {
+	while (h != NULL)
+	{
 		printf("%d ", h->data);
 		h = h->next;
 	}
@@ -188,13 +216,15 @@ void Print(LNode *L) {
 }
 
 // 尾插法建立单链表
-LinkList List_TailInsert(LinkList &L) {
+LinkList List_TailInsert(LinkList &L)
+{
 	int x;
 	L = (LinkList)malloc(sizeof(LNode));
 	LNode *s, *r = L;
 	scanf("%d", &x);
-	while (x != 9999) {
-		s = (LNode*)malloc(sizeof(LNode));
+	while (x != 9999)
+	{
+		s = (LNode *)malloc(sizeof(LNode));
 		s->data = x;
 		r->next = s;
 		r = s;
@@ -205,14 +235,16 @@ LinkList List_TailInsert(LinkList &L) {
 }
 
 // 头插法建立单链表
-LinkList List_HeadInsert(LinkList &L) {
+LinkList List_HeadInsert(LinkList &L)
+{
 	int x;
 	LNode *s;
 	L = (LinkList)malloc(sizeof(LNode));
 	L->next = NULL;
 	scanf("%d", &x);
-	while (x != 9999) {
-		s = (LNode*)malloc(sizeof(LNode));
+	while (x != 9999)
+	{
+		s = (LNode *)malloc(sizeof(LNode));
 		s->data = x;
 		s->next = L->next;
 		L->next = s;
@@ -221,7 +253,8 @@ LinkList List_HeadInsert(LinkList &L) {
 	return L;
 }
 
-int main() {
+int main()
+{
 	LNode *L;
 	InitList(L);
 	ListInsert(L, 1, 1);
@@ -233,4 +266,3 @@ int main() {
 
 	return 0;
 }
-
