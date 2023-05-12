@@ -2,7 +2,7 @@
  * @file SeList.cpp
  * @brief: 顺序表动态分配
  * @author: Long Yan
- * @date: 2023-05-08 19:24:04
+ * @date: 2023-05-08
  *
  **/
 
