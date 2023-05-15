@@ -61,8 +61,6 @@ bool DeQueue(LinkQueue &Q, int &x)
     return true;
 }
 
-
-
 int main()
 {
 
