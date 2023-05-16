@@ -1,6 +1,6 @@
 /**
  * @file: LinkQueue.cpp
- * @brief:
+ * @brief: 链队
  * @author: Long Yan
  * @date: 2023-05-15
  */
