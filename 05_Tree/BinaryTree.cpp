@@ -64,7 +64,7 @@ int main()
     root->rchild = NULL;
 
     BiTNode *p = (BiTNode *)malloc(sizeof(BiTNode));
-    p->data = {2};
+    p->data = {2};                       
     p->lchild = NULL;
     p->rchild = NULL;
 
