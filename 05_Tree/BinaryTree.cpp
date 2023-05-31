@@ -20,7 +20,10 @@ typedef struct BiTNode
     struct BiTNode *lchild, *rchild;
 } BiTNode, *BiTree;
 
-void Visit(BiTNode *p);
+void Visit(BiTNode *p)
+{
+    printf("%d ", p->data);
+}
 
 void PreOrder(BiTree T)
 {
@@ -32,7 +35,8 @@ void PreOrder(BiTree T)
     }
 }
 
-void InOrder(BiTree T){
+void InOrder(BiTree T)
+{
     if (T != NULL)
     {
         PreOrder(T->lchild);
@@ -41,7 +45,8 @@ void InOrder(BiTree T){
     }
 }
 
-void PostOrder(BiTree T){
+void PostOrder(BiTree T)
+{
     if (T != NULL)
     {
         PreOrder(T->lchild);
@@ -64,5 +69,7 @@ int main()
     p->rchild = NULL;
 
     root->lchild = p;
+
+    InOrder(root);
     return 0;
 }
