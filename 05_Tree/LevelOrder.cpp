@@ -34,7 +34,7 @@ void LevelOrder(BiTree T)
     while (!Q.empty())
     {
         p = Q.front();
-        Q.pop();
+        Q.pop();  
 
         Visit(p);
 
