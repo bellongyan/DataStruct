@@ -11,65 +11,65 @@
 
 struct ElemType
 {
-    int value;
+	int value;
 };
 
 typedef struct BiTNode
 {
-    ElemType data;
-    struct BiTNode *lchild, *rchild;
+	ElemType data;
+	struct BiTNode *lchild, *rchild;
 } BiTNode, *BiTree;
 
 void Visit(BiTNode *p)
 {
-    printf("%d ", p->data);
+	printf("%d ", p->data.value);
 }
 
 void PreOrder(BiTree T)
 {
-    if (T != NULL)
-    {
-        Visit(T);
-        PreOrder(T->lchild);
-        PreOrder(T->rchild);
-    }
+	if (T != NULL)
+	{
+		Visit(T);
+		PreOrder(T->lchild);
+		PreOrder(T->rchild);
+	}
 }
 
 void InOrder(BiTree T)
 {
-    if (T != NULL)
-    {
-        PreOrder(T->lchild);
-        Visit(T);
-        PreOrder(T->rchild);
-    }
+	if (T != NULL)
+	{
+		PreOrder(T->lchild);
+		Visit(T);
+		PreOrder(T->rchild);
+	}
 }
 
 void PostOrder(BiTree T)
 {
-    if (T != NULL)
-    {
-        PreOrder(T->lchild);
-        PreOrder(T->rchild);
-        Visit(T);
-    }
+	if (T != NULL)
+	{
+		PreOrder(T->lchild);
+		PreOrder(T->rchild);
+		Visit(T);
+	}
 }
 
 int main()
 {
-    BiTree root = NULL;
-    root = (BiTree)malloc(sizeof(BiTNode));
-    root->data = {1},
-    root->lchild = NULL;
-    root->rchild = NULL;
+	BiTree root = NULL;
+	root = (BiTree)malloc(sizeof(BiTNode));
+	root->data = {1},
+	root->lchild = NULL;
+	root->rchild = NULL;
 
-    BiTNode *p = (BiTNode *)malloc(sizeof(BiTNode));
-    p->data = {2};                       
-    p->lchild = NULL;
-    p->rchild = NULL;
+	BiTNode *p = (BiTNode *)malloc(sizeof(BiTNode));
+	p->data = {2};
+	p->lchild = NULL;
+	p->rchild = NULL;
 
-    root->lchild = p;
+	root->lchild = p;
 
-    InOrder(root);
-    return 0;
+	InOrder(root);
+	return 0;
 }
