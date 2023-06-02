@@ -39,9 +39,9 @@ void InOrder(BiTree T)
 {
 	if (T != NULL)
 	{
-		PreOrder(T->lchild);
+		InOrder(T->lchild);
 		Visit(T);
-		PreOrder(T->rchild);
+		InOrder(T->rchild);
 	}
 }
 
@@ -49,27 +49,43 @@ void PostOrder(BiTree T)
 {
 	if (T != NULL)
 	{
-		PreOrder(T->lchild);
-		PreOrder(T->rchild);
+		PostOrder(T->lchild);
+		PostOrder(T->rchild);
 		Visit(T);
 	}
 }
 
 int main()
 {
-	BiTree root = NULL;
+	// 构建一个二叉树
+	BiTree root;
+
 	root = (BiTree)malloc(sizeof(BiTNode));
 	root->data = {1},
 	root->lchild = NULL;
 	root->rchild = NULL;
 
-	BiTNode *p = (BiTNode *)malloc(sizeof(BiTNode));
-	p->data = {2};
-	p->lchild = NULL;
-	p->rchild = NULL;
+	BiTNode *node1 = (BiTNode *)malloc(sizeof(BiTNode));
+	BiTNode *node2 = (BiTNode *)malloc(sizeof(BiTNode));
+	BiTNode *node3 = (BiTNode *)malloc(sizeof(BiTNode));
+	BiTNode *node4 = (BiTNode *)malloc(sizeof(BiTNode));
+	BiTNode *node5 = (BiTNode *)malloc(sizeof(BiTNode));
 
-	root->lchild = p;
+	node1->data = {2}, node1->lchild = NULL, node1->rchild = NULL;
+	node2->data = {3}, node2->lchild = NULL, node2->rchild = NULL;
+	node3->data = {4}, node3->lchild = NULL, node3->rchild = NULL;
+	node4->data = {5}, node4->lchild = NULL, node4->rchild = NULL;
+	node5->data = {6}, node5->lchild = NULL, node5->rchild = NULL;
 
+	root->lchild = node1, root->rchild = node2;
+	node1->lchild = node3, node1->rchild = node4;
+	node2->lchild = node5, node2->rchild = NULL;
+
+	printf("=========Pre=========\n");
+	PreOrder(root);
+	printf("\n=========In=========\n");
 	InOrder(root);
+	printf("\n=========Post=========\n");
+	PostOrder(root);
 	return 0;
 }
