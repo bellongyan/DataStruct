@@ -5,19 +5,21 @@
  * @date: 2023-06-27
  */
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
 #define MAXSIZE 10
 
 typedef int ElemType;
-typedef struct{
+typedef struct
+{
     ElemType *elem;
     int Tablelen;
-}SSTable;
+} SSTable;
 
-int BinarySearch(SSTable L, ElemType key){
+int BinarySearch(SSTable L, ElemType key)
+{
     int low = 0, high = L.Tablelen - 1, mid;
     while (low <= high)
     {
@@ -33,11 +35,12 @@ int BinarySearch(SSTable L, ElemType key){
         else
         {
             low = mid + 1;
-        }       
+        }
     }
     return -1;
 }
-int main(){
+int main()
+{
     SSTable L;
     L.elem = (ElemType *)malloc(MAXSIZE * sizeof(ElemType));
     L.Tablelen = MAXSIZE;
@@ -47,6 +50,6 @@ int main(){
     }
     int result = BinarySearch(L, 5);
     printf("%d\n", result);
-        
+
     return 0;
 }
