@@ -34,7 +34,7 @@ BSTNode *BSTSearch(BSTree T, ElemType key)
 }
 
 // 二叉排序树的插入
-int BST_Insert(BSTree &T, ElemType key)
+int BSTInsert(BSTree &T, ElemType key)
 {
     if (T == NULL)
     {
@@ -49,11 +49,23 @@ int BST_Insert(BSTree &T, ElemType key)
     }
     else if (key < T->key)
     {
-        return BST_Insert(T->lchild, key);
+        return BSTInsert(T->lchild, key);
     }
     else
     {
-        return BST_Insert(T->rchild, key);
+        return BSTInsert(T->rchild, key);
+    }
+}
+
+// 二叉排序树的构造
+void CreateBST(BSTree &T, ElemType str[], int n)
+{
+    T = NULL;
+    int i = 0;
+    while (i < n)
+    {
+        BSTInsert(T, str[i]);
+        i++;
     }
 }
 
