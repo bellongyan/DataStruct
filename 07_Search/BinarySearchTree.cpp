@@ -5,11 +5,36 @@
  * @date: 2023-06-27
  */
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
-int main(){
-    
+typedef int ElemType;
+typedef struct BSTNode
+{
+    int key;
+    struct BSTNode *lchild, *rchild;
+} BSTNode, *BSTree;
+
+// 二叉排序树的查找
+BSTNode *BSTSearch(BSTree T, ElemType key)
+{
+    while (T != NULL && key != T->key)
+    {
+        if (key < T->key)
+        {
+            T = T->lchild;
+        }
+        else
+        {
+            T = T->rchild;
+        }
+    }
+    return T;
+}
+
+int main()
+{
+
     return 0;
 }
