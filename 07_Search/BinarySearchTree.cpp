@@ -33,6 +33,30 @@ BSTNode *BSTSearch(BSTree T, ElemType key)
     return T;
 }
 
+// 二叉排序树的插入
+int BST_Insert(BSTree &T, ElemType key)
+{
+    if (T == NULL)
+    {
+        T = (BSTree)malloc(sizeof(BSTNode));
+        T->key = key;
+        T->lchild = T->rchild = NULL;
+        return 1;
+    }
+    else if (key == T->key)
+    {
+        return 0;
+    }
+    else if (key < T->key)
+    {
+        return BST_Insert(T->lchild, key);
+    }
+    else
+    {
+        return BST_Insert(T->rchild, key);
+    }
+}
+
 int main()
 {
 
