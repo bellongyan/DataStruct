@@ -71,6 +71,12 @@ void CreateBST(BSTree &T, ElemType str[], int n)
 
 int main()
 {
+    BSTree T;
+    ElemType str[] = {62, 88, 58, 47, 35, 73, 51, 99, 37, 93};
+    CreateBST(T, str, 10);
+    BSTNode *result = BSTSearch(T, 51);
+    printf("%d\n", result->key);
+    
 
     return 0;
 }
