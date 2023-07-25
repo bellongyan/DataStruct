@@ -5,20 +5,17 @@
  * @date: 2023-07-23
  */
 
+#include "InsertSort.cpp"
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
-#include "InsertSort.cpp"
 
-int main()
-{
-    int arr[20] = {
-        73, 19, 32, 74, 21, 43, 23, 12, 54, 32, 65, 34, 76, 23, 54, 23, 65, 34, 76, 23};
+int main() {
+    int arr[20] = {73, 19, 32, 74, 21, 43, 23, 12, 54, 32, 65, 34, 76, 23, 54, 23, 65, 34, 76, 23};
 
     int resurt = InsertSort(arr, 20);
 
-    for (int i = 0; i < 20; i++)
-    {
+    for (int i = 0; i < 20; i++) {
         printf("%d ", arr[i]);
     }
 

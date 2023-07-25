@@ -5,32 +5,29 @@
  * @date: 2023-06-19
  */
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<stdbool.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define MAXVERTEXNUM 100
 
-typedef struct ArcNode
-{
+typedef struct ArcNode {
     int adjvex;
     struct ArcNode *nextarc;
     // InfoType info;
 } ArcNode;
 
-typedef struct VNode
-{
+typedef struct VNode {
     int data;
     ArcNode *first;
 } VNode, AdjList[MAXVERTEXNUM];
 
-typedef struct
-{
+typedef struct {
     AdjList vertices;
     int vexnum, arcnum;
 } ALGraph;
 
-int main(){
-    
+int main() {
+
     return 0;
 }

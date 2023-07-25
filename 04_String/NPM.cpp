@@ -5,30 +5,24 @@
  * @date: 2023-05-28
  */
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 #define MAXLEN 255
 
-typedef struct
-{
+typedef struct {
     char ch[MAXLEN];
     int length;
 } SString;
 
-int Index(SString S, SString T)
-{
+int Index(SString S, SString T) {
     int i = 1, j = 1;
-    while (i <= S.length && j <= T.length)
-    {
-        if (S.ch[i] == T.ch[j])
-        {
+    while (i <= S.length && j <= T.length) {
+        if (S.ch[i] == T.ch[j]) {
             ++i;
             ++j;
-        }
-        else
-        {
+        } else {
             i = i - j + 2;
             j = 1;
         }
@@ -39,8 +33,7 @@ int Index(SString S, SString T)
         return 0;
 }
 
-int main()
-{
+int main() {
     SString S, T;
     S.length = 5;
     T.length = 2;

@@ -5,58 +5,49 @@
  * @date: 2023-05-31
  */
 
+#include <queue>
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
-#include <queue>
 
-struct ElemType
-{
+struct ElemType {
     int value;
 };
 
-typedef struct BiTNode
-{
+typedef struct BiTNode {
     ElemType data;
     struct BiTNode *lchild, *rchild;
 } BiTNode, *BiTree;
 
-void Visit(BiTNode *p)
-{
+void Visit(BiTNode *p) {
     printf("%d ", p->data);
 }
 
-void LevelOrder(BiTree T)
-{
+void LevelOrder(BiTree T) {
     std::queue<BiTree> Q;
     BiTree p;
     Q.push(T);
-    while (!Q.empty())
-    {
+    while (!Q.empty()) {
         p = Q.front();
-        Q.pop();  
+        Q.pop();
 
         Visit(p);
 
-        if (p->lchild != NULL)
-        {
+        if (p->lchild != NULL) {
             Q.push(p->lchild);
         }
-        if (p->rchild != NULL)
-        {
+        if (p->rchild != NULL) {
             Q.push(p->rchild);
         }
     }
 }
 
-int main()
-{
+int main() {
     // 构建一个二叉树
     BiTree root;
 
     root = (BiTree)malloc(sizeof(BiTNode));
-    root->data = {1},
-    root->lchild = NULL;
+    root->data = {1}, root->lchild = NULL;
     root->rchild = NULL;
 
     BiTNode *node1 = (BiTNode *)malloc(sizeof(BiTNode));

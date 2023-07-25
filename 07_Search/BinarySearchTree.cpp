@@ -5,28 +5,22 @@
  * @date: 2023-06-27
  */
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 typedef int ElemType;
-typedef struct BSTNode
-{
+typedef struct BSTNode {
     int key;
     struct BSTNode *lchild, *rchild;
 } BSTNode, *BSTree;
 
 // 二叉排序树的查找
-BSTNode *BSTSearch(BSTree T, ElemType key)
-{
-    while (T != NULL && key != T->key)
-    {
-        if (key < T->key)
-        {
+BSTNode *BSTSearch(BSTree T, ElemType key) {
+    while (T != NULL && key != T->key) {
+        if (key < T->key) {
             T = T->lchild;
-        }
-        else
-        {
+        } else {
             T = T->rchild;
         }
     }
@@ -34,49 +28,37 @@ BSTNode *BSTSearch(BSTree T, ElemType key)
 }
 
 // 二叉排序树的插入
-int BSTInsert(BSTree &T, ElemType key)
-{
-    if (T == NULL)
-    {
+int BSTInsert(BSTree &T, ElemType key) {
+    if (T == NULL) {
         T = (BSTree)malloc(sizeof(BSTNode));
         T->key = key;
         T->lchild = T->rchild = NULL;
         return 1;
-    }
-    else if (key == T->key)
-    {
+    } else if (key == T->key) {
         return 0;
-    }
-    else if (key < T->key)
-    {
+    } else if (key < T->key) {
         return BSTInsert(T->lchild, key);
-    }
-    else
-    {
+    } else {
         return BSTInsert(T->rchild, key);
     }
 }
 
 // 二叉排序树的构造
-void CreateBST(BSTree &T, ElemType str[], int n)
-{
+void CreateBST(BSTree &T, ElemType str[], int n) {
     T = NULL;
     int i = 0;
-    while (i < n)
-    {
+    while (i < n) {
         BSTInsert(T, str[i]);
         i++;
     }
 }
 
-int main()
-{
+int main() {
     BSTree T;
     ElemType str[] = {62, 88, 58, 47, 35, 73, 51, 99, 37, 93};
     CreateBST(T, str, 10);
     BSTNode *result = BSTSearch(T, 51);
     printf("%d\n", result->key);
-    
 
     return 0;
 }

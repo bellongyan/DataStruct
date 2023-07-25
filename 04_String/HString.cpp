@@ -5,20 +5,18 @@
  * @date: 2023-05-28
  */
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 #define MAXLEN 255
 
-typedef struct
-{
+typedef struct {
     char *ch;
     int length;
 } HString;
 
-int main()
-{
+int main() {
     HString S;
     S.ch = (char *)malloc(sizeof(char) * MAXLEN);
     S.length = 0;

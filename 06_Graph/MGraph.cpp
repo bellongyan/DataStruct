@@ -5,24 +5,22 @@
  * @date: 2023-06-13
  */
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 #define MAXVERTEXNUM 100
 
 typedef char VertexType;
 typedef int EdgeType;
-typedef struct
-{
+typedef struct {
     VertexType Vex[MAXVERTEXNUM];
     EdgeType Edge[MAXVERTEXNUM][MAXVERTEXNUM];
 
     int vexnum, arcnum;
 } MGraph;
 
-int main()
-{
-    
+int main() {
+
     return 0;
 }

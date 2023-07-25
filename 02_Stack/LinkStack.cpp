@@ -1,37 +1,32 @@
 /**
  * @file: LinkStack.cpp
- * @brief: Á´Õ»ÊµÏÖ
+ * @brief: ï¿½ï¿½Õ»Êµï¿½ï¿½
  * @author: Long Yan
  * @date: 2023-05-12
  */
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
-typedef struct LinkNode
-{
+typedef struct LinkNode {
     int data;
     struct LinkNode *next;
 } LinkNode, *LinkStack;
 
-void InitStack(LinkStack &S)
-{
+void InitStack(LinkStack &S) {
     S = NULL;
 }
 
-bool Empty(LinkStack S)
-{
+bool Empty(LinkStack S) {
     return (S == NULL);
 }
 
-// ½øÕ»
-bool Push(LinkStack &S, int e)
-{
+// ï¿½ï¿½Õ»
+bool Push(LinkStack &S, int e) {
     LinkNode *h;
     h = (LinkNode *)malloc(sizeof(LinkNode));
-    if (Empty(h))
-    {
+    if (Empty(h)) {
         return false;
     }
     h->data = e;
@@ -40,11 +35,9 @@ bool Push(LinkStack &S, int e)
     return true;
 }
 
-// ³öÕ»
-bool Pop(LinkStack &S)
-{
-    if (Empty(S))
-    {
+// ï¿½ï¿½Õ»
+bool Pop(LinkStack &S) {
+    if (Empty(S)) {
         return false;
     }
 
@@ -54,31 +47,26 @@ bool Pop(LinkStack &S)
     return true;
 }
 
-// ¶ÁÕ»¶¥ÔªËØ
-bool GetTop(LinkStack S, int &e)
-{
-    if (Empty(S))
-    {
+// ï¿½ï¿½Õ»ï¿½ï¿½Ôªï¿½ï¿½
+bool GetTop(LinkStack S, int &e) {
+    if (Empty(S)) {
         return false;
     }
     e = S->data;
     return true;
 }
 
-// Êä³öÕ»ÔªËØ
-void PrintStack(LinkStack S)
-{
+// ï¿½ï¿½ï¿½Õ»Ôªï¿½ï¿½
+void PrintStack(LinkStack S) {
     LinkNode *h = S;
-    while (h != NULL)
-    {
+    while (h != NULL) {
         printf("%d ", h->data);
         h = h->next;
     }
     printf("\n");
 }
 
-int main()
-{
+int main() {
     LinkStack S;
     InitStack(S);
     Push(S, 1);
@@ -90,7 +78,7 @@ int main()
 
     int e;
     GetTop(S, e);
-    printf("Õ»¶¥ÔªËØÎª£º%d\n", e);
+    printf("Õ»ï¿½ï¿½Ôªï¿½ï¿½Îªï¿½ï¿½%d\n", e);
 
     Pop(S);
     PrintStack(S);

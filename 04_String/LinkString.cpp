@@ -5,18 +5,16 @@
  * @date: 2023-05-28
  */
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
-typedef struct StringNode
-{
+typedef struct StringNode {
     char ch[4];
     struct StringNode *next;
 } StringNode, *String;
 
-int main()
-{
+int main() {
 
     return 0;
 }

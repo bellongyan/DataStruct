@@ -6,20 +6,20 @@
  *
  **/
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<stdbool.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #define MaxSize 10
 
 typedef struct {
-	int data;
-	int next;
+    int data;
+    int next;
 } SLinkList[MaxSize];
 
 int main() {
-	SLinkList a;
-	printf("Size a = %lld\n", sizeof(a));
+    SLinkList a;
+    printf("Size a = %lld\n", sizeof(a));
 
-	return 0;
+    return 0;
 }

@@ -6,44 +6,44 @@
  *
  **/
 
-#include<stdio.h>
-#include<stdlib.h>
-#include<stdbool.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 typedef struct CNode {
-	int data;
-	struct CNode *next;
+    int data;
+    struct CNode *next;
 } CNode, *CLinkList;
 
 // 初始化循环单链表
 bool InitCLinkList(CLinkList L) {
-	L = (CNode *)malloc(sizeof(CNode));
-	if (L == NULL) {
-		return false;
-	}
-	L->next = L;
-	return true;
+    L = (CNode *)malloc(sizeof(CNode));
+    if (L == NULL) {
+        return false;
+    }
+    L->next = L;
+    return true;
 }
 
 // 判断空链表
 bool empty(CLinkList L) {
-	if (L->next == L) {
-		return true;
-	} else {
-		return true;
-	}
+    if (L->next == L) {
+        return true;
+    } else {
+        return true;
+    }
 }
 
 // 判断节点 p 是否是表尾节点
 bool isTail(CLinkList L, CNode *p) {
-	if (p->next == L) {
-		return true;
-	} else {
-		return false;
-	}
+    if (p->next == L) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 int main() {
 
-	return 0;
+    return 0;
 }

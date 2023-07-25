@@ -5,36 +5,30 @@
  * @date: 2023-05-14
  */
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 #define MAXSIZE 10
 
-typedef struct SqQueue
-{
+typedef struct SqQueue {
     int data[MAXSIZE];
     int front, rear;
 } SqQueue;
 
-void InitQueue(SqQueue &Q)
-{
+void InitQueue(SqQueue &Q) {
     Q.rear = Q.front = 0;
 }
 
-bool QueueEmpty(SqQueue Q)
-{
-    if (Q.rear == Q.front)
-    {
+bool QueueEmpty(SqQueue Q) {
+    if (Q.rear == Q.front) {
         return true;
     }
     return false;
 }
 
-bool EnQueue(SqQueue &Q, int e)
-{
-    if ((Q.rear + 1) % MAXSIZE == Q.front)
-    {
+bool EnQueue(SqQueue &Q, int e) {
+    if ((Q.rear + 1) % MAXSIZE == Q.front) {
         return false;
     }
 
@@ -43,10 +37,8 @@ bool EnQueue(SqQueue &Q, int e)
     return true;
 }
 
-bool DeQueue(SqQueue &Q, int &e)
-{
-    if (Q.rear == Q.front)
-    {
+bool DeQueue(SqQueue &Q, int &e) {
+    if (Q.rear == Q.front) {
         return false;
     }
     e = Q.data[Q.front];
@@ -54,10 +46,8 @@ bool DeQueue(SqQueue &Q, int &e)
     return true;
 }
 
-bool GetHead(SqQueue Q, int &x)
-{
-    if (Q.front == Q.rear)
-    {
+bool GetHead(SqQueue Q, int &x) {
+    if (Q.front == Q.rear) {
         return false;
     }
 
@@ -68,8 +58,7 @@ bool GetHead(SqQueue Q, int &x)
 // 队列的元素个数
 // (Q.rear + MAXSIZE - Q.front) % MAXSIZE;
 
-int main()
-{
+int main() {
 
     return 0;
 }
